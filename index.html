@@ -1,155 +1,735 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>EP Art Studio | Editorial Version</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg: #F6F2EC;
-  --card: #FFFDFB;
-  --accent: #DCC8B8;
-  --text: #2F2B28;
-  --muted: #7A726C;
-}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EP Art Studio | Estelle Pieters</title>
+  <meta name="description" content="EP Art Studio by Estelle Pieters — coastal paintings inspired by the sea, shifting skies, and West Coast light." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #F6F2EC;
+      --surface: #FFFDFB;
+      --surface-soft: #FAF6F1;
+      --accent: #DCC8B8;
+      --accent-deep: #C9B09B;
+      --line: rgba(47, 43, 40, 0.10);
+      --text: #2F2B28;
+      --muted: #766E68;
+      --shadow: 0 20px 50px rgba(47, 43, 40, 0.07);
+      --radius-xl: 32px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --container: min(1180px, calc(100% - 2rem));
+      --nav-height: 78px;
+    }
 
-body {
-  margin: 0;
-  font-family: 'Raleway', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.7;
-}
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(180deg, #fbf8f4 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
 
-.container {
-  width: min(1100px, 90%);
-  margin: auto;
-}
+    img { display: block; width: 100%; }
+    a { color: inherit; text-decoration: none; }
 
-header {
-  padding: 2rem 0;
-  text-align: center;
-}
+    .container {
+      width: var(--container);
+      margin-inline: auto;
+    }
 
-h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.5rem;
-  letter-spacing: 0.05em;
-}
+    .section {
+      padding: 5.5rem 0;
+      scroll-margin-top: 96px;
+    }
 
-.subtitle {
-  color: var(--muted);
-  margin-top: 0.5rem;
-}
+    .eyebrow {
+      margin: 0 0 1rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.24em;
+      color: var(--muted);
+      font-weight: 500;
+    }
 
-.section {
-  padding: 4rem 0;
-}
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 500;
+      line-height: 1.18;
+      letter-spacing: 0.04em;
+      margin: 0;
+    }
 
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-}
+    h1 {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      letter-spacing: 0.05em;
+    }
 
-.card {
-  background: var(--card);
-  padding: 2rem;
-  border-radius: 20px;
-}
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.15rem);
+      margin-bottom: 1.1rem;
+    }
 
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-}
+    h3 {
+      font-size: 1.55rem;
+      margin-bottom: 0.6rem;
+    }
 
-.gallery img {
-  width: 100%;
-  height: auto;
-  border-radius: 16px;
-}
+    p {
+      margin: 0 0 1.15rem;
+      font-size: 1.02rem;
+      color: var(--text);
+    }
 
-.caption {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
+    .muted { color: var(--muted); }
 
-.quote {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.4rem;
-  text-align: center;
-  margin-top: 2rem;
-}
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(246, 242, 236, 0.86);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(47, 43, 40, 0.07);
+    }
 
-footer {
-  text-align: center;
-  padding: 2rem 0;
-  font-size: 0.9rem;
-  color: var(--muted);
-}
+    .nav {
+      min-height: var(--nav-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
 
-@media (max-width: 800px) {
-  .split, .gallery {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 0.1rem;
+    }
+
+    .brand-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.02rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .brand-sub {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .menu {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.15rem;
+      justify-content: flex-end;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .menu a {
+      position: relative;
+      padding-bottom: 0.15rem;
+    }
+
+    .menu a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -0.1rem;
+      width: 100%;
+      height: 1px;
+      background: var(--text);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 180ms ease;
+    }
+
+    .menu a:hover::after { transform: scaleX(1); }
+
+    .hero {
+      padding: 4.5rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      top: -60px;
+      right: -100px;
+      background: radial-gradient(circle, rgba(220, 200, 184, 0.45) 0%, rgba(220, 200, 184, 0) 72%);
+      filter: blur(20px);
+      pointer-events: none;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    .hero-panel,
+    .hero-art,
+    .content-card,
+    .quote-panel,
+    .pottery-panel,
+    .contact-panel,
+    .contact-list-panel {
+      background: rgba(255, 253, 251, 0.82);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      border-radius: var(--radius-xl);
+    }
+
+    .hero-panel {
+      padding: clamp(2rem, 4vw, 4rem);
+      background: linear-gradient(135deg, rgba(220, 200, 184, 0.45), rgba(255, 253, 251, 0.95));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-kicker {
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      margin: 0.9rem 0 1.2rem;
+    }
+
+    .hero-lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 54ch;
+      margin-bottom: 0.4rem;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin-top: 1.8rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.95rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.94rem;
+      font-weight: 500;
+      transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+      border: 1px solid transparent;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    .btn-primary {
+      background: var(--text);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .hero-art {
+      padding: 1.25rem;
+      background: linear-gradient(180deg, rgba(255, 253, 251, 0.95), rgba(250, 246, 241, 0.95));
+      display: grid;
+      grid-template-rows: auto auto;
+      gap: 1rem;
+    }
+
+    .hero-art img {
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 24px;
+    }
+
+    .quote-inline {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.28rem;
+      line-height: 1.5;
+      padding: 0.3rem 0.25rem 0;
+    }
+
+    .quote-inline span {
+      display: block;
+      margin-top: 0.65rem;
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--muted);
+    }
+
+    .editorial-intro {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .content-card,
+    .quote-panel,
+    .pottery-panel,
+    .contact-panel,
+    .contact-list-panel {
+      padding: 2rem;
+    }
+
+    .content-card {
+      background: linear-gradient(180deg, rgba(255, 253, 251, 0.95), rgba(250, 246, 241, 0.92));
+    }
+
+    .quote-panel {
+      background: linear-gradient(180deg, rgba(220, 200, 184, 0.28), rgba(255, 253, 251, 0.96));
+      align-self: stretch;
+    }
+
+    blockquote {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.55rem, 2.2vw, 2rem);
+      line-height: 1.5;
+    }
+
+    .quote-author {
+      margin-top: 1rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.82rem;
+      font-weight: 500;
+    }
+
+    .gallery-head {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 1rem;
+      align-items: end;
+      margin-bottom: 2rem;
+    }
+
+    .gallery-meta {
+      color: var(--muted);
+      font-size: 0.95rem;
+      max-width: 38ch;
+      text-align: right;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.6rem;
+      align-items: start;
+    }
+
+    .art-card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      padding: 14px;
+    }
+
+    .art-card img {
+      width: 100%;
+      height: 420px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 18px;
+    }
+
+    .art-caption {
+      margin-top: 0.9rem;
+      padding: 0 0.2rem 0.2rem;
+    }
+
+    .art-caption strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.15rem;
+    }
+
+    .art-caption span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .pottery-wrap,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+    }
+
+    .pottery-panel {
+      background: linear-gradient(135deg, rgba(220, 200, 184, 0.30), rgba(255, 253, 251, 0.95));
+    }
+
+    .pottery-placeholder {
+      min-height: 320px;
+      border-radius: 26px;
+      border: 1.5px dashed rgba(47, 43, 40, 0.14);
+      background: linear-gradient(135deg, rgba(255, 253, 251, 0.96), rgba(250, 246, 241, 0.92));
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 2rem;
+      color: var(--muted);
+    }
+
+    .contact-panel,
+    .contact-list-panel {
+      background: linear-gradient(180deg, rgba(255, 253, 251, 0.96), rgba(250, 246, 241, 0.92));
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 1.2rem;
+    }
+
+    .contact-item {
+      padding: 1rem 1.1rem;
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.75);
+      border: 1px solid var(--line);
+      transition: transform 180ms ease, background 180ms ease;
+    }
+
+    .contact-item:hover {
+      transform: translateY(-2px);
+      background: #fff;
+    }
+
+    .contact-item span {
+      display: block;
+      text-transform: uppercase;
+      font-size: 0.74rem;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+      font-weight: 500;
+    }
+
+    .footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 1080px) {
+      .hero-grid,
+      .editorial-intro,
+      .pottery-wrap,
+      .contact-grid,
+      .gallery-head {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-meta {
+        text-align: left;
+        max-width: none;
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root { --container: min(100% - 1.2rem, 100% - 1.2rem); }
+
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem 0;
+      }
+
+      .menu {
+        gap: 0.85rem 1rem;
+        font-size: 0.88rem;
+      }
+
+      .section { padding: 4rem 0; }
+      .hero { padding-top: 2.7rem; }
+
+      .hero-panel,
+      .hero-art,
+      .content-card,
+      .quote-panel,
+      .pottery-panel,
+      .contact-panel,
+      .contact-list-panel {
+        padding: 1.4rem;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .art-card img {
+        height: 320px;
+      }
+
+      blockquote {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
 </head>
 <body>
-
-<header class="container">
-  <h1>EP Art Studio</h1>
-  <div class="subtitle">Estelle Pieters</div>
-  <p>Capturing light, colour, and the poetry of the sea.</p>
-</header>
-
-<section class="section container">
-  <div class="split">
-    <div class="card">
-      <h2>The Artist</h2>
-      <p>I began my artistic journey in 1975 with pottery...</p>
+  <header class="site-header">
+    <div class="container nav">
+      <a href="#top" class="brand">
+        <span class="brand-title">EP Art Studio</span>
+        <span class="brand-sub">Estelle Pieters</span>
+      </a>
+      <nav class="menu" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#story">Story</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#pottery">Pottery</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
-    <div class="card">
-      <h2>The Story</h2>
-      <p>The sea has always been my greatest source of inspiration...</p>
-    </div>
-  </div>
-</section>
+  </header>
 
-<section class="section container">
-  <h2>Gallery</h2>
-  <div class="gallery">
-    <div>
-      <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/1_lssiyv.png">
-      <div class="caption">Coastal Light</div>
-    </div>
-    <div>
-      <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/2_nvhpzq.png">
-      <div class="caption">Sea Horizon</div>
-    </div>
-    <div>
-      <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/3_fzs47w.png">
-      <div class="caption">Evening Tide</div>
-    </div>
-    <div>
-      <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/4_qipiyx.png">
-      <div class="caption">Quiet Shore</div>
-    </div>
-  </div>
-</section>
+  <main id="top">
+    <section class="hero section">
+      <div class="container hero-grid">
+        <div class="hero-panel reveal">
+          <div class="hero-kicker">Editorial Portfolio • West Coast • South Africa</div>
+          <h1>EP Art Studio</h1>
+          <div class="hero-name">Estelle Pieters</div>
+          <p class="hero-lead">Capturing light, colour, and the poetry of the sea.</p>
+          <p>Inspired by the rhythm of the ocean and ever-changing skies, I create paintings that bring coastal moments to life through colour and expression.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="#gallery">View the Gallery</a>
+            <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+          </div>
+        </div>
 
-<section class="section container">
-  <div class="quote">
-    “Always be a first-rate version of yourself instead of a second-rate version of someone else.”
-  </div>
-</section>
+        <aside class="hero-art reveal">
+          <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461002/14_pb6kn7.png" alt="Sunset seascape painting by Estelle Pieters" />
+          <div class="quote-inline">
+            “Always be a first-rate version of yourself instead of a second-rate version of someone else.”
+            <span>Judy Garland</span>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-<footer>
-  © EP Art Studio
-</footer>
+    <section id="about" class="section">
+      <div class="container editorial-intro">
+        <article class="content-card reveal">
+          <div class="eyebrow">The Artist</div>
+          <h2>Rooted in craft, guided by feeling.</h2>
+          <p>I began my artistic journey in 1975 with pottery, exploring wheelwork, hand-building, and mould-making as forms of creative expression.</p>
+          <p>In 1998, I transitioned into painting—initially to decorate my ceramics—but quickly fell in love with the medium itself. I started with acrylics and later moved to oils, which remain my favourite.</p>
+          <p>With the guidance of inspiring teachers Dennis Hilton Lees and Cyril Coetzee, I developed both confidence and a love for experimentation that continues to shape my work.</p>
+        </article>
 
+        <aside class="quote-panel reveal" id="story">
+          <div class="eyebrow">The Story</div>
+          <h2>West Coast light, sea, and sky.</h2>
+          <p>I have been a member of the South African Society of Artists (SASA) since 2012.</p>
+          <p>The sea has always been my greatest source of inspiration. Growing up in Durban and now living along the shoreline of Saldanha, I am constantly drawn to coastal landscapes. Plein air painting is a passion of mine, allowing me to capture fleeting light, shifting skies, and the ever-changing mood of the ocean.</p>
+          <p>While I now spend most of my time painting in my studio, I still value the shared experience of creating alongside others.</p>
+          <p>Colour plays a central role in my work—I rarely use paint straight from the tube, preferring to mix my own tones to create depth and emotion. I also explore abstract art from time to time to keep my work loose and expressive.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="gallery" class="section">
+      <div class="container">
+        <div class="gallery-head reveal">
+          <div>
+            <div class="eyebrow">Gallery</div>
+            <h2>A quieter, more editorial presentation of the collection.</h2>
+          </div>
+          <p class="gallery-meta">Each work is given equal space so the mood, colour, and composition can be viewed with clarity.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/1_lssiyv.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Coastal Light</strong><span>Oil on canvas</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/2_nvhpzq.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Sea Horizon</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/3_fzs47w.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Evening Tide</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/4_qipiyx.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Quiet Shore</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461001/5_nx3hpr.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Open Water</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461001/6_s1kiby.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Salt Air</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461001/7_wxqdc3.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Shifting Skies</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461001/8_whbjpz.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Low Tide</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461001/9_nvxdlj.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Sea Glow</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461001/10_acxy1j.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Blue Silence</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461002/11_xwq6hv.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Ocean Memory</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461002/12_qbbycx.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>West Coast Drift</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461002/13_etrxx3.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Soft Horizon</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461002/14_pb6kn7.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Sunset Echo</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461003/15_wm7ucc.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Coastal Reflection</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461002/16_dlkx7g.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Light on Water</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/17_oo3x6m.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Still Sea</strong><span>Original artwork</span></figcaption>
+          </figure>
+          <figure class="art-card reveal">
+            <img src="https://res.cloudinary.com/dqqyitjmb/image/upload/v1775461000/18_ztrno6.png" alt="Painting by Estelle Pieters" />
+            <figcaption class="art-caption"><strong>Golden Shore</strong><span>Original artwork</span></figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="pottery" class="section">
+      <div class="container pottery-wrap">
+        <div class="pottery-panel reveal">
+          <div class="eyebrow">Pottery</div>
+          <h2>The first creative language.</h2>
+          <p>Pottery was where the journey began—through wheelwork, hand-building, and mould-making. This section is ready for future ceramic pieces, process images, or a small collection archive.</p>
+          <p class="muted">For now, it serves as a placeholder for upcoming pottery content while the current focus remains on Estelle’s painting collection.</p>
+        </div>
+        <div class="pottery-placeholder reveal">
+          <div>
+            <h3>Pottery collection coming soon</h3>
+            <p>Add ceramics, detail shots, studio images, or a separate collection page here later.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container contact-grid">
+        <div class="contact-panel reveal">
+          <div class="eyebrow">Closing Note</div>
+          <h2>Each painting is a moment held in time—an expression of light, place, and feeling.</h2>
+          <p class="muted">For enquiries, commissions, available works, or studio contact, use the details alongside.</p>
+        </div>
+        <div class="contact-list-panel reveal">
+          <div class="eyebrow">Contact</div>
+          <h2>Connect with EP Art Studio</h2>
+          <div class="contact-list">
+            <a class="contact-item" href="mailto:est.pieters@gmail.com">
+              <span>Email</span>
+              est.pieters@gmail.com
+            </a>
+            <a class="contact-item" href="tel:+27833031776">
+              <span>Phone</span>
+              +27 83 303 1776
+            </a>
+            <a class="contact-item" href="https://www.instagram.com/epartstudiosouthafrica/" target="_blank" rel="noreferrer noopener">
+              <span>Instagram</span>
+              @epartstudiosouthafrica
+            </a>
+            <a class="contact-item" href="https://saldanhaluv.co.za/estelle-pieters" target="_blank" rel="noreferrer noopener">
+              <span>Feature</span>
+              Saldanha Luv Artist Profile
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© <span id="year"></span> EP Art Studio · Editorial Version</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
