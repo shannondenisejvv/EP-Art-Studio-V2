@@ -340,11 +340,14 @@ p {
 
 .art-card img {
   width: 100%;
-  height: clamp(240px, 21vw, 300px);
-  object-fit: contain;
+  height: clamp(260px, 24vw, 360px);
+
+  object-fit: cover;
   object-position: center;
-  background: #fff;
+
   border-radius: 18px;
+
+  background: #f7f7f7;
 }
 
 .art-caption {
@@ -700,10 +703,10 @@ blockquote {
     padding: 10px;
   }
 
-  .art-card img {
-    height: 300px;
-    object-fit: contain;
-  }
+.art-card img {
+  height: 300px;
+  object-fit: cover;
+}
 
   .art-desc {
     min-height: auto;
@@ -753,10 +756,10 @@ blockquote {
     padding: 0.8rem 1rem;
   }
 
-  .art-card img {
-    height: 285px;
-    object-fit: contain;
-  }
+.art-card img {
+  height: 285px;
+  object-fit: cover;
+}
 
   .pottery-track img,
   .pottery-feature img,
