@@ -23,15 +23,138 @@ html {
   scroll-behavior: smooth;
 }
 
-body {
-  margin: 0;
-  font-family: 'Raleway', sans-serif;
-  color: var(--text);
-  line-height: 1.75;
-  background:
-    radial-gradient(circle at top right, rgba(88,126,155,0.12), transparent 30%),
-    radial-gradient(circle at top left, rgba(145,180,205,0.10), transparent 34%),
-    linear-gradient(180deg, #fcfdfe 0%, #f3f8fb 52%, #e8f1f6 100%);
+/* POTTERY */
+
+.pottery-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.6rem;
+  align-items: stretch;
+}
+
+.pottery-feature,
+.pottery-slider {
+  background: rgba(255,255,255,0.94);
+  border-radius: 28px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.pottery-feature img {
+  width: 100%;
+  height: 100%;
+  max-height: 540px;
+  object-fit: contain;
+  border-radius: 22px;
+  background: #fff;
+}
+
+.pottery-slider {
+  position: relative;
+  min-height: 540px;
+}
+
+.pottery-track {
+  display: flex;
+  gap: 1rem;
+  height: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  align-items: center;
+}
+
+.pottery-track::-webkit-scrollbar {
+  display: none;
+}
+
+.pottery-track img {
+  flex: 0 0 100%;
+  height: 500px;
+  object-fit: contain;
+  border-radius: 22px;
+  background: #fff;
+  scroll-snap-align: center;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(70,110,135,0.88);
+  color: #fff;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.slider-btn:hover {
+  background: rgba(55,90,115,0.95);
+}
+
+.prev {
+  left: 1rem;
+}
+
+.next {
+  right: 1rem;
+}
+
+/* MOBILE POTTERY */
+
+@media (max-width: 900px) {
+  .pottery-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .pottery-feature,
+  .pottery-slider {
+    border-radius: 24px;
+    padding: 12px;
+  }
+
+  .pottery-feature img {
+    height: auto;
+    max-height: none;
+  }
+
+  .pottery-slider {
+    min-height: 390px;
+  }
+
+  .pottery-track img {
+    height: 350px;
+  }
+}
+
+@media (max-width: 520px) {
+  .pottery-slider {
+    min-height: 320px;
+  }
+
+  .pottery-track img {
+    height: 285px;
+  }
+
+  .slider-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 1.25rem;
+  }
+
+  .prev {
+    left: 0.6rem;
+  }
+
+  .next {
+    right: 0.6rem;
+  }
 }
 
 img {
