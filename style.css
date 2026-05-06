@@ -63,10 +63,10 @@ a {
 
 .eyebrow {
   margin: 0 0 1rem;
-  font-size: 0.78rem;
+  font-size: 0.95rem;
   text-transform: uppercase;
-  letter-spacing: 0.24em;
-  color: var(--primary);
+  letter-spacing: 0.28em;
+  color: #C97B5B;
   font-weight: 700;
 }
 
