@@ -28,11 +28,33 @@ body {
   font-family: 'Raleway', sans-serif;
   color: var(--text);
   line-height: 1.75;
+
   background:
-    radial-gradient(circle at top right, rgba(25,65,95,0.24), transparent 32%),
-    radial-gradient(circle at 15% 30%, rgba(60,105,135,0.18), transparent 34%),
-    radial-gradient(circle at bottom left, rgba(35,80,115,0.16), transparent 34%),
-    linear-gradient(145deg, #e6eef3 0%, #d4e2eb 42%, #edf2f5 66%, #c9dce7 100%);
+    radial-gradient(
+      circle at top right,
+      rgba(34, 87, 122, 0.22),
+      transparent 34%
+    ),
+
+    radial-gradient(
+      circle at top left,
+      rgba(94, 142, 176, 0.16),
+      transparent 38%
+    ),
+
+    radial-gradient(
+      circle at bottom left,
+      rgba(58, 108, 140, 0.12),
+      transparent 34%
+    ),
+
+    linear-gradient(
+      180deg,
+      #f8fbfd 0%,
+      #edf5fa 36%,
+      #dbe9f2 72%,
+      #c9ddea 100%
+    );
 }
 
 img {
