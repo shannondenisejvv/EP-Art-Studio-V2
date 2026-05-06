@@ -270,8 +270,8 @@ p {
 
 .studio-image-card img {
   width: 100%;
-  height: 100%;
-  max-height: 520px;
+  height: 360px;
+  max-height: 360px;
   object-fit: cover;
   object-position: center 30%;
   border-radius: 24px;
@@ -413,8 +413,8 @@ p {
 
 .pottery-feature img {
   width: 100%;
-  height: 100%;
-  max-height: 540px;
+  height: 360px;
+  max-height: 360px;
   object-fit: contain;
   border-radius: 22px;
   background: #fff;
@@ -422,18 +422,16 @@ p {
 
 .pottery-slider {
   position: relative;
-  min-height: 540px;
+  min-height: 390px;
 }
 
-.pottery-track {
-  display: flex;
-  gap: 1rem;
-  height: 100%;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  align-items: center;
+.pottery-track img {
+  flex: 0 0 100%;
+  height: 340px;
+  object-fit: contain;
+  border-radius: 22px;
+  background: #fff;
+  scroll-snap-align: center;
 }
 
 .pottery-track::-webkit-scrollbar {
@@ -602,52 +600,32 @@ blockquote {
   }
 }
 
-@media (max-width: 760px) {
-  :root {
-    --container: min(100% - 1.2rem, 100% - 1.2rem);
-  }
+@media (max-width: 900px) {
 
-  .nav {
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 1rem 0;
-  }
-
-  .menu {
-    gap: 0.85rem 1rem;
-    font-size: 0.88rem;
-  }
-
-  .section {
-    padding: 3.5rem 0;
-  }
-
-  .gallery-grid {
+  .pottery-layout {
     grid-template-columns: 1fr;
   }
 
-  .content-card,
-  .story-card,
-  .studio-panel,
-  .studio-image-card,
-  .contact-panel,
-  .contact-list-panel {
-    padding: 1.4rem;
-  }
-
-  .art-card img {
-    height: 300px;
-  }
-}
-
-@media (max-width: 520px) {
+  .pottery-feature,
   .pottery-slider {
-    min-height: 320px;
+    border-radius: 24px;
+    padding: 12px;
+  }
+
+  .studio-image-card img,
+  .pottery-feature img {
+    height: auto;
+    max-height: none;
+  }
+
+  .pottery-slider {
+    min-height: 340px;
   }
 
   .pottery-track img {
-    height: 285px;
+    height: 300px;
   }
+}
 
   .slider-btn {
     width: 38px;
